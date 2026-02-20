@@ -22,3 +22,53 @@ body {
   height: 100dvh;
   color: var(--black);
 }
+
+/* ---------- Desktop ---------- */
+.desktop {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  background: var(--teal);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desktop-icons {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 72px;
+  padding: 6px 4px;
+  cursor: default;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.icon:hover,
+.icon:focus {
+  background: rgba(0, 0, 128, 0.35);
+  border: 1px dotted var(--white);
+}
+
+.icon-img { font-size: 30px; }
+
+.icon-label {
+  margin-top: 5px;
+  color: var(--white);
+  font-size: 11px;
+  text-align: center;
+  text-shadow: 1px 1px 1px var(--black);
+  line-height: 1.3;
+}
