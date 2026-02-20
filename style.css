@@ -1,0 +1,24 @@
+/* Quiz.exe — styles */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gray:        #c0c0c0;
+  --gray-dark:   #808080;
+  --gray-darker: #404040;
+  --white:       #ffffff;
+  --black:       #000000;
+  --navy:        #000080;
+  --navy-light:  #1084d0;
+  --teal:        #008080;
+  --font:        'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 12px;
+  background: var(--teal);
+  overflow: hidden;
+  height: 100dvh;
+  color: var(--black);
+}
