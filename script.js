@@ -207,3 +207,17 @@ backBtn.addEventListener("click", () => { showScreen(resultsScreen); setStatus(`
     if (window.confirm("Exit Quiz.exe?")) win.style.display = "none";
   });
 })();
+
+// ---------- Start Menu ----------
+(function initStartMenu() {
+  const menu     = document.getElementById("start-menu");
+  const startBtn = document.getElementById("taskbar-start");
+
+  function openMenu()   { menu.classList.add("is-open");    menu.setAttribute("aria-hidden", "false"); startBtn.classList.add("is-active"); }
+  function closeMenu()  { menu.classList.remove("is-open"); menu.setAttribute("aria-hidden", "true");  startBtn.classList.remove("is-active"); }
+  function toggleMenu() { menu.classList.contains("is-open") ? closeMenu() : openMenu(); }
+
+  startBtn.addEventListener("click", toggleMenu);
+  document.addEventListener("click", e => { if (!menu.contains(e.target) && e.target !== startBtn) closeMenu(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
+})();
