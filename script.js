@@ -150,3 +150,60 @@ nextBtn.addEventListener("click",    nextQuestion);
 restartBtn.addEventListener("click", startQuiz);
 reviewBtn.addEventListener("click",  showReview);
 backBtn.addEventListener("click", () => { showScreen(resultsScreen); setStatus(`Quiz complete \u2014 ${score}/${QUESTIONS.length} correct`); });
+
+// ---------- Window Dragging ----------
+(function initDragging() {
+  const win = document.getElementById("quiz-window");
+  const titleBar = document.getElementById("title-bar");
+  let dragging = false, startX, startY, originLeft, originTop;
+
+  titleBar.addEventListener("mousedown", e => {
+    if (e.target.classList.contains("title-btn")) return;
+    dragging = true;
+    const rect = win.getBoundingClientRect();
+    startX = e.clientX; startY = e.clientY;
+    originLeft = rect.left; originTop = rect.top;
+    win.style.transform = "none";
+    win.style.left = `${originLeft}px`;
+    win.style.top  = `${originTop}px`;
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", e => {
+    if (!dragging) return;
+    win.style.left = `${originLeft + (e.clientX - startX)}px`;
+    win.style.top  = `${originTop  + (e.clientY - startY)}px`;
+  });
+
+  document.addEventListener("mouseup", () => { dragging = false; });
+})();
+
+// ---------- Window Chrome Buttons ----------
+(function initWindowButtons() {
+  const win       = document.getElementById("quiz-window");
+  const body      = win.querySelector(".window-body");
+  const menuBar   = win.querySelector(".menu-bar");
+  const statusBar = win.querySelector(".status-bar");
+
+  win.querySelector(".minimize-btn").addEventListener("click", () => {
+    const collapsed = body.style.display === "none";
+    body.style.display      = collapsed ? "" : "none";
+    menuBar.style.display   = collapsed ? "" : "none";
+    statusBar.style.display = collapsed ? "" : "none";
+  });
+
+  win.querySelector(".maximize-btn").addEventListener("click", () => {
+    if (win.dataset.maximized === "true") {
+      win.style.cssText = ""; win.dataset.maximized = "false";
+    } else {
+      win.style.transform = "none"; win.style.top = "0"; win.style.left = "0";
+      win.style.width = "100vw"; win.style.maxWidth = "100vw";
+      win.style.height = "calc(100dvh - 32px)"; win.style.maxHeight = "calc(100dvh - 32px)";
+      win.dataset.maximized = "true";
+    }
+  });
+
+  win.querySelector(".close-btn").addEventListener("click", () => {
+    if (window.confirm("Exit Quiz.exe?")) win.style.display = "none";
+  });
+})();
