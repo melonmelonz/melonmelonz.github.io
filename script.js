@@ -218,6 +218,6 @@ backBtn.addEventListener("click", () => { showScreen(resultsScreen); setStatus(`
   function toggleMenu() { menu.classList.contains("is-open") ? closeMenu() : openMenu(); }
 
   startBtn.addEventListener("click", toggleMenu);
-  document.addEventListener("click", e => { if (!menu.contains(e.target) && e.target !== startBtn) closeMenu(); });
+  document.addEventListener("click", e => { if (!menu.contains(e.target) && !startBtn.contains(e.target)) closeMenu(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
 })();
