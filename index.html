@@ -31,7 +31,54 @@
         <span class="menu-item">Help</span>
       </div>
       <div class="window-body">
-        <!-- screens go here -->
+        <div id="start-screen" class="screen active">
+          <div class="screen-content">
+            <div class="splash-icon">📝</div>
+            <h1 class="app-title">Quiz.exe</h1>
+            <p class="app-version">Version 1.0 &nbsp;|&nbsp; General Knowledge Edition</p>
+            <div class="separator"></div>
+            <p class="intro-text">Answer 10 multiple-choice questions.<br>No time limit — take your time!</p>
+            <button class="btn btn-primary" id="start-btn">▶&nbsp; Start Quiz</button>
+          </div>
+        </div>
+        <div id="quiz-screen" class="screen">
+          <div class="quiz-layout">
+            <div class="progress-row">
+              <span class="progress-label" id="question-counter">Question 1 of 10</span>
+              <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+            </div>
+            <div class="question-panel"><p id="question-text" class="question-text"></p></div>
+            <div class="answers-grid" id="answers-container"></div>
+            <div class="quiz-footer">
+              <span id="score-tracker" class="score-tracker">Score: 0</span>
+              <button class="btn" id="next-btn" disabled>Next&nbsp; ▶</button>
+            </div>
+          </div>
+        </div>
+        <div id="results-screen" class="screen">
+          <div class="screen-content">
+            <div class="result-icon" id="result-icon">🏆</div>
+            <h2 class="results-title">Quiz Complete!</h2>
+            <div class="score-box">
+              <div class="score-number"><span id="final-score">0</span>&thinsp;/&thinsp;10</div>
+              <div class="score-percent" id="score-percent">0%</div>
+            </div>
+            <p class="score-message" id="score-message"></p>
+            <div class="btn-row">
+              <button class="btn btn-primary" id="restart-btn">↩&nbsp; Play Again</button>
+              <button class="btn" id="review-btn">📋&nbsp; View Answers</button>
+            </div>
+          </div>
+        </div>
+        <div id="review-screen" class="screen">
+          <div class="review-layout">
+            <div class="review-header">
+              <span class="review-title">Answer Review</span>
+              <button class="btn btn-sm" id="back-btn">← Back to Results</button>
+            </div>
+            <div class="review-list" id="review-list"></div>
+          </div>
+        </div>
       </div>
       <div class="status-bar">
         <div class="status-panel" id="status-text">Ready</div>
@@ -42,16 +89,11 @@
 
     <div class="taskbar">
       <button class="taskbar-start" id="taskbar-start">
-        <span class="start-logo">⊞</span>
-        <strong>Start</strong>
+        <span class="start-logo">⊞</span><strong>Start</strong>
       </button>
       <div class="taskbar-sep"></div>
-      <div class="taskbar-tasks">
-        <div class="taskbar-task is-active">📝&nbsp; Quiz.exe</div>
-      </div>
-      <div class="taskbar-tray">
-        <span id="taskbar-clock">12:00 PM</span>
-      </div>
+      <div class="taskbar-tasks"><div class="taskbar-task is-active">📝&nbsp; Quiz.exe</div></div>
+      <div class="taskbar-tray"><span id="taskbar-clock">12:00 PM</span></div>
     </div>
 
   </div>
