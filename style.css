@@ -565,3 +565,9 @@ body {
 
 .has-sub:hover .submenu { display: flex; flex-direction: column; }
 .submenu .menu-entry:hover { background: var(--navy); color: var(--white); }
+
+/* ---------- Final polish ---------- */
+@media (max-height: 520px) {
+  .screen-content { padding: 14px; }
+  .splash-icon { font-size: 36px; }
+}
