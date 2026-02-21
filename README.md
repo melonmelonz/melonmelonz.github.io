@@ -8,7 +8,7 @@ My opinion is LLMs make fine assistants, they can write your copy, test behind y
 
 I was already tuning my KDE theme to look similar (it worked too!) so I had the palette ready to go. I am a few hours deep at this point, the instructions said if we have experience it was OK to show a bit of what we know.
 
-It could be approved on in many ways like adding more in-depth functionality to all the buttons, for example.
+It could be improved on in many ways like adding more in-depth functionality to all the buttons, for example.
 
 As of writing my friends' highest score has been 6/10; you all no doubt can do better.
 
