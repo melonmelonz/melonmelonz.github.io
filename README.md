@@ -2,8 +2,6 @@
 
 > A retro general knowledge quiz styled as a Windows 95 desktop application.
 
-> 🍦 Static CSS, HTML & JS.
-
 Made for the Next Step application. Tools used: mix of nvim, avante, claude/mistral modles, ccode and sometimes VSCodium for specific plugins. I can explain every line and could have gotten this done 10x as fast had I fully leveraged my AI setup but I know you want to see use showcase what we can do ourselves.
 
 I was already tuning my KDE theme to look similar so I had the palette ready to go.
@@ -29,7 +27,7 @@ I appreciate the opportunity!
 
 ## Stack
 
-Pure **HTML5**, **CSS3**, and **Vanilla JavaScript** — zero dependencies, no libraries.
+🍦 Static CSS, HTML & JS.
 
 ## How to Play
 
