@@ -1,11 +1,14 @@
 # Quiz.exe
 
 > A retro general knowledge quiz styled as a Windows 95 desktop application.
-> 🍦 Static CSS, HTML & JS
 
-Made for the Next Step application. Tools used: mix of nvim, avante, claude/mistral models and ccode as well as VSCodium. I can explain every line and could have gotten this done 10x as fast had I fully leveraged my AI setup but I know you want to see use showcase what we can do as well.
+> 🍦 Static CSS, HTML & JS.
 
-A balance.
+Made for the Next Step application. Tools used: mix of nvim, avante, claude/mistral modles, ccode and sometimes VSCodium for specific plugins. I can explain every line and could have gotten this done 10x as fast had I fully leveraged my AI setup but I know you want to see use showcase what we can do ourselves.
+
+So far my friends' high score has been 6/10; you all no doubt can do better.
+
+I appreciate the opportunity!
 
 **[melonmelonz.github.io](https://melonmelonz.github.io)**
 
