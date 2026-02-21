@@ -6,7 +6,7 @@ Made for the Next Step application. Tools used: mix of nvim, avante, claude/mist
 I can explain every line and could have gotten this done 10x as fast had I fully leveraged my AI setup but I know you want to see us showcase what we can do ourselves.
 My opinion is LLMs make fine assistants, they can write your copy, test behind you, and pick your questions too! But they cannot substitute creativity and they are ultimately stochastic parrots. A tool, like any other.
 
-I was already tuning my KDE theme to look similar so I had the palette ready to go. So it honestly did not take that long, I am a few hours deep at this point, and the instructions said if we have experience it was OK to show a bit of what we know.
+I was already tuning my KDE theme to look similar (it worked too!) so I had the palette ready to go. I am a few hours deep at this point, the instructions said if we have experience it was OK to show a bit of what we know.
 
 As of writing my friends' highest score has been 6/10; you all no doubt can do better.
 
