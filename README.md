@@ -2,6 +2,10 @@
 
 > A retro general knowledge quiz styled as a Windows 95 desktop application.
 
+Made for the Next Step application. Tools used: mix of nvim, avante, claude/mistral models and ccode as well as VSCodium. I can explain every line and could have gotten this done 10x as fast had I fully leveraged my AI setup but I know you want to see use showcase what we can do as well.
+
+A balance.
+
 **[melonmelonz.github.io](https://melonmelonz.github.io)**
 
 ---
