@@ -6,7 +6,9 @@
 
 Made for the Next Step application. Tools used: mix of nvim, avante, claude/mistral modles, ccode and sometimes VSCodium for specific plugins. I can explain every line and could have gotten this done 10x as fast had I fully leveraged my AI setup but I know you want to see use showcase what we can do ourselves.
 
-So far my friends' high score has been 6/10; you all no doubt can do better.
+I was already tuning my KDE theme to look similar so I had the palette ready to go.
+
+As of writing my friends' highest score has been 6/10; you all no doubt can do better.
 
 I appreciate the opportunity!
 
