@@ -3,7 +3,7 @@
 > A retro general knowledge quiz styled as a Windows 95 desktop application.
 
 Made for the Next Step application. Tools used: mix of nvim, avante, claude/mistral models, ccode and sometimes VSCodium for specific plugins. Oh and I typically use Prettier on-save.
-I can explain every line and could have gotten this done 10x as fast had I fully leveraged my AI setup but I know you want to see use showcase what we can do ourselves.
+I can explain every line and could have gotten this done 10x as fast had I fully leveraged my AI setup but I know you want to see us showcase what we can do ourselves.
 My opinion is LLMs make fine assistants, they can write your copy, test behind you, and pick your questions too! But they cannot substitute creativity and they are ultimately stochastic parrots. A tool, like any other.
 
 I was already tuning my KDE theme to look similar so I had the palette ready to go.
