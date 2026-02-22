@@ -63,8 +63,12 @@ function updateClock() {
   if (winClockEl)   winClockEl.textContent   = label;
   if (taskbarClock) taskbarClock.textContent = label;
 }
-updateClock();
-setInterval(updateClock, 1000);
+(function scheduleClock() {
+  updateClock();
+  const now = new Date();
+  const msToNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+  setTimeout(() => { updateClock(); setInterval(updateClock, 60000); }, msToNextMinute);
+})();
 
 function setStatus(msg) { if (statusEl) statusEl.textContent = msg; }
 
@@ -84,13 +88,15 @@ function loadQuestion() {
   counterEl.textContent    = `Question ${currentIndex + 1} of ${QUESTIONS.length}`;
   progressFill.style.width = `${(currentIndex / QUESTIONS.length) * 100}%`;
   answersEl.innerHTML = "";
+  const frag = document.createDocumentFragment();
   q.answers.forEach((text, i) => {
     const btn = document.createElement("button");
     btn.className   = "answer-btn";
     btn.textContent = `${String.fromCharCode(65 + i)}.  ${text}`;
     btn.addEventListener("click", () => selectAnswer(i));
-    answersEl.appendChild(btn);
+    frag.appendChild(btn);
   });
+  answersEl.appendChild(frag);
 }
 
 function selectAnswer(chosen) {
@@ -128,7 +134,7 @@ function showResults() {
 }
 
 function showReview() {
-  reviewListEl.innerHTML = "";
+  const frag = document.createDocumentFragment();
   QUESTIONS.forEach((q, i) => {
     const chosen = userAnswers[i], ok = chosen === q.correct;
     const item = document.createElement("div"); item.className = "review-item";
@@ -139,8 +145,10 @@ function showReview() {
     det.innerHTML = ok ? `<span class="correct-text">\u2714 ${q.answers[q.correct]}</span>` : `Your answer: ${q.answers[chosen]}&emsp;<span class="correct-text">Correct: ${q.answers[q.correct]}</span>`;
     aDiv.appendChild(tag); aDiv.appendChild(det);
     item.appendChild(qDiv); item.appendChild(aDiv);
-    reviewListEl.appendChild(item);
+    frag.appendChild(item);
   });
+  reviewListEl.innerHTML = "";
+  reviewListEl.appendChild(frag);
   showScreen(reviewScreen);
   setStatus("Reviewing answers\u2026");
 }
@@ -155,27 +163,30 @@ backBtn.addEventListener("click", () => { showScreen(resultsScreen); setStatus(`
 (function initDragging() {
   const win = document.getElementById("quiz-window");
   const titleBar = document.getElementById("title-bar");
-  let dragging = false, startX, startY, originLeft, originTop;
+  let startX, startY, originLeft, originTop;
+
+  function onDragMove(e) {
+    win.style.left = `${originLeft + (e.clientX - startX)}px`;
+    win.style.top  = `${originTop  + (e.clientY - startY)}px`;
+  }
+
+  function onDragEnd() {
+    document.removeEventListener("mousemove", onDragMove);
+    document.removeEventListener("mouseup",   onDragEnd);
+  }
 
   titleBar.addEventListener("mousedown", e => {
     if (e.target.classList.contains("title-btn")) return;
-    dragging = true;
     const rect = win.getBoundingClientRect();
     startX = e.clientX; startY = e.clientY;
     originLeft = rect.left; originTop = rect.top;
     win.style.transform = "none";
     win.style.left = `${originLeft}px`;
     win.style.top  = `${originTop}px`;
+    document.addEventListener("mousemove", onDragMove);
+    document.addEventListener("mouseup",   onDragEnd);
     e.preventDefault();
   });
-
-  document.addEventListener("mousemove", e => {
-    if (!dragging) return;
-    win.style.left = `${originLeft + (e.clientX - startX)}px`;
-    win.style.top  = `${originTop  + (e.clientY - startY)}px`;
-  });
-
-  document.addEventListener("mouseup", () => { dragging = false; });
 })();
 
 // ---------- Window Chrome Buttons ----------
